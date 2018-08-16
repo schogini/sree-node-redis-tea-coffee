@@ -1,0 +1,16 @@
+FROM node:4.4
+MAINTAINER Sreeprakash Neelakantan <sree@schogini.com>
+
+EXPOSE 8080
+RUN npm install nodemon
+COPY server_uri.js .
+CMD nodemon server_uri.js
+# docker build -t schogini/node-hello1:uri -f Dockerfile-uri .
+# docker login
+# docker push schogini/node-hello1:uri-redis
+# 
+# docker run -ti --name temp -p 8081:8080 --rm --link redis schogini/node-hello1:uri-redis
+
+
+#kubectl -n <namespace> run node-test --image=docker.io/<docker-user>/hello-node:v5 --port 8080
+#kubectl -n <namespace> expose deploy node-test --type="LoadBalancer" --port=80 --target-port=8080
