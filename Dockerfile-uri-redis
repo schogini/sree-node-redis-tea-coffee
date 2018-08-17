@@ -11,6 +11,10 @@ CMD node server_uri_redis.js
 # docker login
 # docker push schogini/node-hello1:uri-redis
 # docker run -d -p6379:6379 --rm --name redis redis
+# PERSISTANCE
+# mkdir redis-data
+# docker run -d -v $PWD/redis-data:/data -p6379:6379 \
+# --rm --name redis redis redis-server --appendonly yes
 # docker run -ti --name temp -p 8081:8080 --rm --link redis schogini/node-hello1:uri-redis
 
 #kubectl -n <namespace> run node-test --image=docker.io/<docker-user>/hello-node:v5 --port 8080
