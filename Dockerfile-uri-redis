@@ -2,15 +2,15 @@ FROM node:4.4
 MAINTAINER Sreeprakash Neelakantan <sree@schogini.com>
 
 RUN npm install redis
-ENV REDIS_HOST=redis
-ENV REDIS_PORT=6379
+# ENV REDIS_HOST=redis
+# ENV REDIS_PORT=6379
 EXPOSE 8080
 COPY server_uri_redis.js .
 CMD node server_uri_redis.js
 # docker build -t schogini/node-hello1:uri-redis -f Dockerfile-uri-redis .
 # docker login
 # docker push schogini/node-hello1:uri-redis
-# 
+# docker run -d -p6379:6379 --rm --name redis redis
 # docker run -ti --name temp -p 8081:8080 --rm --link redis schogini/node-hello1:uri-redis
 
 #kubectl -n <namespace> run node-test --image=docker.io/<docker-user>/hello-node:v5 --port 8080
